@@ -1,15 +1,19 @@
-package lv_2
+package lv_3
 
+import lv_3.menu.DrinkMenu
+import lv_3.menu.MainMenu
+import lv_3.menu.SideMenu
 
-import lv_2.menu.DrinkMenu
-import lv_2.menu.MainMenu
-import lv_2.menu.SideMenu
 
 fun main() {
+    init()
+}
+
+
+fun init() {
     val exception = Exception()
     var myBag = mutableListOf<String>()
     var sum = 0
-
 
     while (true) {
         println("0.주문종료 1.메인 메뉴 2.사이드 메뉴 3.음료")
@@ -21,29 +25,29 @@ fun main() {
             }
 
             1 -> {
-                MainMenu().displayInfo()
-                val mainMenu = exception.exceptionRL("mainMenu").toString().toInt()
+                MainMenu().displayInfo(firstMenu - 1)
+                val mainMenu = exception.exceptionRL("mainMenu").toString().toInt() //메뉴 선택
                 //장바구니, 금액에 선택항목 추가
-                myBag += MainMenu().selectName(mainMenu)
-                sum += MainMenu().selectPrice(mainMenu)
+                myBag += Menu().select(firstMenu, mainMenu).first
+                sum += Menu().select(firstMenu, mainMenu).second
                 println("장바구니:$myBag 총 금액:$sum")
             }
 
             2 -> {
-                SideMenu().displayInfo()
+                SideMenu().displayInfo(firstMenu - 1)
                 val sideMenu = exception.exceptionRL("sideMenu").toString().toInt()
                 //장바구니, 금액에 선택항목 추가
-                myBag += SideMenu().selectName(sideMenu)
-                sum += SideMenu().selectPrice(sideMenu)
+                myBag += Menu().select(firstMenu, sideMenu).first
+                sum += Menu().select(firstMenu, sideMenu).second
                 println("장바구니:$myBag 총 금액:$sum")
             }
 
             3 -> {
-                DrinkMenu().displayInfo()
+                DrinkMenu().displayInfo(firstMenu - 1)
                 val drinkMenu = exception.exceptionRL("drinkMenu").toString().toInt()
                 //장바구니, 금액에 선택항목 추가
-                myBag += DrinkMenu().selectName(drinkMenu)
-                sum += DrinkMenu().selectPrice(drinkMenu)
+                myBag += Menu().select(firstMenu, drinkMenu).first
+                sum += Menu().select(firstMenu, drinkMenu).second
                 println("장바구니:$myBag 총 금액:$sum")
             }
         }
