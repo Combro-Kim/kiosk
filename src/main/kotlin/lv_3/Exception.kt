@@ -1,4 +1,4 @@
-package lv_2
+package lv_3
 
 import java.lang.NumberFormatException
 
@@ -56,6 +56,19 @@ class Exception {
                     println("잘못된 입력입니다.")
                 }
             }
+
+/*            else -> while (true) { //question
+                try {
+                    val question = readln().toInt()
+                    if (question == 1 || question == 2) {
+                        return question
+                    } else {
+                        println("잘못된 입력입니다.")
+                    }
+                } catch (e: NumberFormatException) {
+                    println("잘못된 입력입니다.")
+                }
+            }*/
         }
     }
 }
