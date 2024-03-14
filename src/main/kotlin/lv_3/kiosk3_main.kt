@@ -1,8 +1,8 @@
 package lv_3
 
-import lv_3.menu.DrinkMenu
-import lv_3.menu.MainMenu
-import lv_3.menu.SideMenu
+import lv_4.menu.DrinkMenu
+import lv_4.menu.MainMenu
+import lv_4.menu.SideMenu
 
 
 fun main() {
