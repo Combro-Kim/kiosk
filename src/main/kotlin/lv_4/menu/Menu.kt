@@ -18,16 +18,20 @@ open class Menu {
         val showInfo = explainMenu[idx]
 
         for (i in showMenu.indices) {
-            var name:String = showMenu[i]
-            if(name.length != 20) repeat(20-name.length){name += " "}
-            //println("${i}. ${showMenu[i]}(${showPrice[i]}원) | ${showInfo[i]}")
-            println("%d. %s| %dW | %s".format(i,name,showPrice[i],showInfo[i]))
+            var name: String = showMenu[i]
+            if (name.length != 20) repeat(20 - name.length) { name += " " } //메뉴 출력에서 띄어쓰기 맞추기 위함
+            println("%d. %s| %dW | %s".format(i, name, showPrice[i], showInfo[i]))
         }
     }
 
-    open fun select(n1:Int,n2: Int): Pair<String, Int> {
-        return menuName[n1-1][n2] to menuPrice[n1-1][n2]
+    open fun select(n1: Int, n2: Int): Pair<String, Int> { //리스트에서 선택된 값 저장하려구 리턴
+        return menuName[n1 - 1][n2] to menuPrice[n1 - 1][n2]
     }
+
+/*    fun saveData(bag:List<String>,price:Int){
+        bag += select()
+
+    }*/
 
 
 }
